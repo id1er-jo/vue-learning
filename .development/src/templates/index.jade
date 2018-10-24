@@ -1,0 +1,29 @@
+extends parts/layout
+
+include parts/top-slider
+include parts/offers-slider
+include parts/application
+include parts/contacts
+include parts/newsletter
+
+block content
+    style.
+        .main__page-list {
+            margin-top: 86px;
+        }
+
+        .page-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.6rem;
+        }
+
+    .main
+        section.main__page-list
+            .container
+                .title Список #[b страниц]
+                ul.page-list
+                    each page in pageList
+                        li
+                            a(href= page.link target='_blank')= page.name
+                            |  - #{page.link}
